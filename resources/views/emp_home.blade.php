@@ -25,7 +25,6 @@
           @endif
           <a class="dropdown-item" href="{{url('/myprojects',session('Emp_Id'))}}">Projects Assigned to me</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
 
@@ -46,7 +45,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{url('/attendance',session('Emp_Id'))}}">Checkin</a>
-         <a class="dropdown-item" href="{{url('emp_check_attendance',session('Emp_Id'))}}">My Atendance</a>
+         <a class="dropdown-item" href="{{url('emp_check_attendance',session('Emp_Id'))}}">My Attendance</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url('/emp_meetings',session('Emp_Id'))}}">Meetings Scheduled</a>

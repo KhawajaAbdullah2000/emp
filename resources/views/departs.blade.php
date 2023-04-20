@@ -62,7 +62,7 @@
                  <td>{{$d->dept_name}}</td>
                  <td>{{$d->f_name}} {{$d->l_name}}</td>
                  <td>
-                   {{-- <a href="{{url('edit_dept',$d->dept_id)}}" class="btn btn-primary btn-sm">Edit</a> --}}
+                   <a href="{{url('edit_dept',$d->dept_id)}}" class="btn btn-primary btn-sm">Edit</a>
                      <a href="{{route('delete_dept',['id'=>$d->dept_id])}}" class="btn btn-danger btn-sm">Delete</a>
                  </td>
              </tr>

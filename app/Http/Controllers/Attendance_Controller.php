@@ -29,7 +29,7 @@ public function attendance($id){
    
    }
    
-       //checkin employee logic ar user press checkin
+       //checkin employee logic after user press checkin
    public function mark_attendance(Request $req, $id){
    $flag=0;
            $time= date("Y-m-d H:i:s");

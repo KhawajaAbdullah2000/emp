@@ -32,8 +32,6 @@ class Leave_Controller extends Controller
        $leave->status=0;
        $leave->save();
        return redirect('/emp_home')->with('pass2','Applied for leave successfully');
-
-
    }
 
    public function my_leaves($id){

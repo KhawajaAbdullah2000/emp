@@ -45,8 +45,6 @@ class Meeting_Controller extends Controller
         //only show meetins sceduled in future and not the nes already done
          $emps=Meeting::join('employee','employee.id','meetings.emp_id')
          ->where('meetings.meeting_day','>=',date('Y-m-d'))->orderby('meetings.meeting_day')->get();
-        
-         
         return view('meetings_scheduled',['emps'=>$emps]);
     }
 

@@ -80,7 +80,7 @@ class AdminController extends Controller
         $emp->age=$req->age;
         $emp->email=$req->email;
         $emp->dept_id=$req->dept_id;
-       $emp->man_id=$depart->manager_id;
+
         
         $emp->hiredate=$req->hiredate;
         $emp->salary=$req->salary;
@@ -118,7 +118,6 @@ class AdminController extends Controller
         $manager= Department::where('dept_id',$req->dept_id)->first();
         $update=Employee::find($id);
         $update->dept_id=$req->dept_id;
-       $update->man_id=$manager->manager_id;   
     
         $update->salary=$req->salary;
        
@@ -149,7 +148,7 @@ class AdminController extends Controller
 
     public function edit_dept($id){
       $dept=Department::find($id);
-       $emps=Employee::where('dept_id','!=',$id)->get();
+       $emps=Employee::all(); //changed here
       if($dept){
         return view('edit_dept_form',['dept'=>$dept,'emps'=>$emps]);
       }
@@ -169,8 +168,8 @@ class AdminController extends Controller
 
     }
     public function add_depart(){
-      //  $emps=Employee::all();
-      $emps=Employee::where('id','!=','man_id')->get();
+     $emps=Employee::all();
+     
       return view('depart_add',['emps'=>$emps]);
     }
    public function add_dept_form(Request $req){
@@ -253,7 +252,7 @@ class AdminController extends Controller
       ->select('employee.dept_id','department.dept_name', DB::raw('count(*) as total'))->join('department','department.dept_id','employee.dept_id')
       ->groupBy(['employee.dept_id','department.dept_name'])->having('employee.dept_id',$req->dept_id)->first();
       if(!$emps){
-        return redirect()->back()->with('myerror','No Emplees are currently in this Department');
+        return redirect()->back()->with('myerror','No Employees are currently in this Department');
       }
       return view('filter_emp_by_dept',['emps'=>$emps]);
      }

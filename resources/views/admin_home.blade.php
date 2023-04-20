@@ -144,11 +144,11 @@
                          <td>{{$emp->dept_id}}</td>
                          <td>{{$emp->dept_name}}</td>
                          <td>{{$emp->salary}}</td>
-                         @if($emp->id==$emp->man_id)
-                         <td> </td>
+                         @if($emp->id==$emp->manager_id)
+                         <td> Manager</td>
                          @endif
-                         @if($emp->id!=$emp->man_id)
-                         <td>{{$emp->man_id}}</td>
+                         @if($emp->id!=$emp->manager_id)
+                         <td>{{$emp->manager_id}}</td>
                          @endif
                        
                          <td>{{$emp->email}}</td>

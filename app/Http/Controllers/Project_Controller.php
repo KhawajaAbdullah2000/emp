@@ -52,7 +52,7 @@ class Project_Controller extends Controller
     }
 
     public function myprojects($id){
-        $projects= Project::where('emp_id',$id)->where('project.status',0)->get();
+        $projects= Project::where('emp_id',$id)->where('project.status',0)->get(); //prjects not submitted
         return view('myprojects',['projects'=>$projects]);
     }
 
